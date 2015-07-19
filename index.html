@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/five-columns.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="js/moment.js"></script>
+		<script src="js/jquery.hc-sticky.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		<title>Lukujärjestys</title>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-59247773-1', 'auto');
+		ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu" class="row">
+				<div class="col-sm-12">
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<header>
+									<h1>Lukkari<span class="main-blue">Kone</span></h1>
+								</header>
+							</div>
+							
+							<div id="navigation" class="col-sm-3 col-xs-5 navbar-right">
+								<div class="btn-group btn-group-justified" role="group">
+									<div class="btn-group" role="group">
+										<button id="navigateBack" type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+										</button>
+									</div>
+									<div id="week-counter" class="btn-group" role="group">
+										<button type="button" class="btn btn-default" disabled></button>
+									</div>
+									<div class="btn-group" role="group">
+										<button id="navigateForward" type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+										</button>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<!-- <ul class="nav navbar-nav">
+									<li><a id="personal-calendar" href="#">Henk. koht lukkari</a></li>
+								</ul> -->
+								<form onkeypress="return event.keyCode != 13;" class="navbar-form navbar-left" role="search">
+									<div class="input-group">
+										<input id="search-box" type="text" class="form-control" 
+										onfocus="this.setSelectionRange(0, this.value.length)" placeholder="Hae esim TO12, TV12, TO13"
+										>
+										<span class="input-group-btn">
+											<button id="search-btn" class="btn btn-primary" type="button">
+											<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+										</span>
+									</div>
+								</form>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+			</div>
+			<div id="calendar-content">
+				<div id="dates" class="row">
+					<div class="col-xs-2 col-sm-1">
+						<div class="panel panel-primary time-panel">
+							<div class="panel-heading"><h3 class="panel-title"><strong>Klo</strong></h3>
+							</div>
+						</div>
+					</div>
+					<div id="monday" class="col-xs-10 col-sm-2 weekday">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title"></h3>
+							</div>
+						</div>
+					</div>
+					<div id="tuesday" class="col-xs-10 col-sm-2 weekday">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title"></h3>
+							</div>
+						</div>
+					</div>
+					<div id="wednesday" class="col-xs-10 col-sm-2 weekday">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title"></h3>
+							</div>
+						</div>
+					</div>
+					<div id="thursday" class="col-xs-10 col-sm-2 weekday">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title"></h3>
+							</div>
+						</div>
+					</div>
+					<div id="friday" class="col-xs-10 col-sm-2 weekday">
+						<div class="panel panel-primary friday-panel">
+							<div class="panel-heading">
+								<h3 class="panel-title"></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div id="times" class="col-xs-2 col-sm-1">
+							<div class="panel panel-default time">
+								<div class="panel-body">08:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">09:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">10:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">11:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">12:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">13:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">14:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">15:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">16:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">17:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">18:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">19:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">20:00</div>
+							</div>
+							<div class="panel panel-default time">
+								<div class="panel-body">21:00</div>
+							</div>
+					</div>
+					<div id="all-subjects" class="col-xs-10 col-sm-11 panel panel-default">
+						<div class="time-separator"></div>
+						<div style="top: 60px" class="time-separator"></div>
+						<div style="top: 120px" class="time-separator"></div>
+						<div style="top: 180px" class="time-separator"></div>
+						<div style="top: 240px" class="time-separator"></div>
+						<div style="top: 300px" class="time-separator"></div>
+						<div style="top: 360px" class="time-separator"></div>
+						<div style="top: 420px" class="time-separator"></div>
+						<div style="top: 480px" class="time-separator"></div>
+						<div style="top: 540px" class="time-separator"></div>
+						<div style="top: 600px" class="time-separator"></div>
+						<div style="top: 660px" class="time-separator"></div>
+						<div style="top: 720px" class="time-separator"></div>
+						<div class="row">
+							<div id="subjectsMonday" class="col-sm-15 weekdaySubjects"></div>
+							<div id="subjectsTuesday" class="col-sm-15 weekdaySubjects"></div>
+							<div id="subjectsWednesday" class="col-sm-15 weekdaySubjects"></div>
+							<div id="subjectsThursday" class="col-sm-15 weekdaySubjects"></div>
+							<div id="subjectsFriday" class="col-sm-15 weekdaySubjects"></div>
+							<div id="timeLine">
+								<div id="timeLineText"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div id="personal-calendar-search">
+				<h1>moi</h1>
+				<div class="row">
+					<div class="input-group">
+						<input id="personal-search-box" type="text" class="form-control" 
+						onfocus="this.setSelectionRange(0, this.value.length)" placeholder="Hae kurssitunnuksella esim. TT00AC40-3008"
+						>
+						<span class="input-group-btn">
+							<button id="search-personal-btn" class="btn btn-primary" type="button">
+							Hae</button>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div id="personal-search-error" class="alert alert-danger" role="alert">Ei hakutuloksia</div>
+				</div>
+				<div class="row">
+					<div class="table-responsive">
+						<table id="personal-results" class="table">
+							<thead>
+								<tr><th>Kurssin nimi</th><th>Kurssitunnus</th><th>Ryhmä</th><th>Aloitus</th><th>Lopetus</th><th>Lisää kalenteriin</th></tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row">
+					<button id="delete-all-personal-courses" type="button" class="btn btn-danger">Poista kaikki kurssit</button>
+				</div>
+			</div> -->
+			
+		</div>
+		
+		
+		
+		
+		
+		<div class="modal fade" id="courseInfo" tabindex="-1" role="dialog" aria-labelledby="courseInfoLabel"
+		aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="courseInfoLabel"></h3>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/main.js"></script>
+		<script src="js/getJSONData.js"></script>
+		<script src="js/navigate.js"></script>
+		<script src="js/init.js"></script>
+	</body>
+</html>
