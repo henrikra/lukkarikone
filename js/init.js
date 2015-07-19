@@ -21,4 +21,4 @@ navigate();
 window.addEventListener("hashchange", navigate);
 // Tehdään päivämääristä ja menuista ikkunan mukana rullautuva
 $('#menu').hcSticky();
-$('#dates').hcSticky({top: 64});
+$('#dates').hcSticky({top: 63});

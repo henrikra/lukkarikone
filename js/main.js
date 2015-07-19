@@ -284,7 +284,7 @@ $("#search-box").keyup(function(event){
 
 // Asettaa viikkolaskurin
 function setWeekCounter(weekNumber) {
-	document.getElementById('week-counter').childNodes[1].innerHTML = '<strong>Vko ' + weekNumber + "</strong>";
+	document.getElementById('week-counter').childNodes[1].innerHTML = 'Vko ' + weekNumber;
 }
 
 function showCourseInfo(course) {
