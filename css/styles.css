@@ -5,7 +5,7 @@ body {
 
 #main-content {
 	margin-bottom: 20px;
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 header h1{
@@ -64,6 +64,7 @@ header h1{
 	height: 60px;
 	border: 0;
 	text-align: center;
+	box-shadow: none;
 }
 
 .time .panel-body {
@@ -79,10 +80,8 @@ header h1{
 #all-subjects {
 	height: 840px;
 	position: relative;
-	border-top: 0;
-	border-color: #DAE7F7;
-	border-right: 0;
-	border-bottom: 0;
+	border: 0;
+	box-shadow: none;
 }
 
 #all-subjects .row {
@@ -90,26 +89,15 @@ header h1{
 	height: 840px;
 }
 
-#all-subjects .row .col-sm-15 {
+.weekdaySubjects {
 	height: 840px;
-}
-#all-subjects .row .col-sm-15:first-child {
-	border-right: 1px #DAE7F7 solid;
-}
-#all-subjects .row .col-sm-15:nth-child(2) {
-	border-right: 1px #DAE7F7 solid;
-}
-#all-subjects .row .col-sm-15:nth-child(3) {
-	border-right: 1px #DAE7F7 solid;
-}
-#all-subjects .row .col-sm-15:nth-child(4) {
-	border-right: 1px #DAE7F7 solid;
+	border-left: 1px solid #DAE7F7;
 }
 
 #dates {
 	z-index: 3;
 	border-bottom: 1px solid #DAE7F7;
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 #dates .panel{
@@ -123,7 +111,7 @@ header h1{
 }
 
 #dates .active div div{
-	background-image: linear-gradient(to bottom, #2399FF 0px, #2B82CF 100%);
+	color: #498CFF;
 }
 
 #navigation {
@@ -229,8 +217,6 @@ header h1{
 	border-bottom-right-radius: 5px;
 }
 
-
-
 #menu {
 	z-index: 4;
 	background: white;
@@ -302,6 +288,12 @@ header h1 {
 @media (max-width: 1200px) {
 	.container {
 		width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.weekdaySubjects.active {
+		background: rgba(73, 140, 255, 0.05);
 	}
 }
 
