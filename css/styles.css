@@ -1,6 +1,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	background: #EFF6FF;
+	font-size: 15px;
 }
 
 #main-content {
@@ -95,7 +96,7 @@ header h1{
 }
 
 #dates {
-	z-index: 3;
+	z-index: 4;
 	border-bottom: 1px solid #DAE7F7;
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
 }
@@ -137,6 +138,7 @@ header h1{
 #search-btn {
 	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 1px rgba(0, 0, 0, 0.075);
 	background-image: linear-gradient(to bottom, rgb(94, 153, 255) 0px, rgb(52, 122, 236) 100%);
+	border-color: rgb(52, 122, 236);
 }
 
 #search-btn:hover, #search-btn:focus {
@@ -194,27 +196,28 @@ header h1{
 
 
 #timeLine {
-	height:2px;
-	width:100%;
-	background:#337AB7;
-	opacity:0.5;
-	filter: alpha(opacity=50);
+	height: 1px;
+	width: 100%;
+	background: #FF5140;
 	position:absolute;
 	z-index:3;
 	display: none;
 }
 
 #timeLineText {
-	float:right;
-	color: white;
-	font-weight: bold;
-	width:40px;
+	height: 22px;
+	line-height: 20px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 3px;
 	text-align: center;
-	background:#337AB7;
-	opacity:0.9;
-	filter: alpha(opacity=90);
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	background: #fff;
+	border: 1px solid #FF5140;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	position: absolute;
+	top: -11px;
+	right: 0;
 }
 
 #menu {
