@@ -163,7 +163,7 @@ header h1{
 	left: 0;
 	width: 100%;
 	overflow: hidden;
-	z-index: 2;
+	z-index: 1;
 	cursor: pointer;
 	border-radius: 4px 0 0 4px;
 }
@@ -200,7 +200,7 @@ header h1{
 	width: 100%;
 	background: #FF5140;
 	position:absolute;
-	z-index:3;
+	z-index: 2;
 	display: none;
 }
 
